@@ -1,0 +1,48 @@
+@use "../media.module" as *;
+@use "../mixin.module" as *;
+
+.QuoteSliderSection {
+    @include flex();
+    padding:80px 20px;
+}
+.quote blockquote{
+    user-select: none
+}
+.quote img{
+    user-select: none
+}
+.left_section header h2{
+    user-select: none
+}
+.container_parent {
+    @include flex();
+    gap: 20px;
+
+}
+
+.left_section {
+    width: 30%;
+}
+
+.container_parent header h2 {
+    @include heading(black);
+}
+.img_review{
+    padding-top: 25px;
+}
+.arrows {}
+
+.right_section {
+    @include flex(row, start);
+    width: 70%;
+    position: relative;
+    scroll-behavior: smooth;
+    font-size: 25px;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.right_section .quote {
+    width: 100%;
+    flex-shrink: 0;
+}

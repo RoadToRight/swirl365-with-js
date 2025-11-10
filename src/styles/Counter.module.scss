@@ -1,0 +1,68 @@
+@use "./mixin.module" as *;
+@use "./media.module" as *;
+
+.Counter{
+    background: url("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760203269/Stats_Bg_gjvpn0.webp");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    @include colorText();
+    @include PaddingPage();
+    @include flex(column);
+
+}
+.container_parent{
+   @include flex(column);
+}
+.Counter header{
+    @include flex(column);
+}
+.Counter p{
+    text-align: center;
+}
+.Counter h2{
+    @include heading();
+    text-align: center;
+}
+.stats{
+    width: 100%;
+       @include flex(row);
+}
+.stats_child{
+    padding: 40px 80px;
+    border-right: 1px solid white;
+       @include flex(column);
+}
+.stats_child h3{
+        @include heading();
+        width: 100%;
+}
+.stats_child h4{
+    @include flex();
+    gap: 10px;
+}
+.stats_child:last-child {
+    border: none !important;
+}
+
+@include NineNine2(){
+.stats_child{
+    padding: 40px 40px;
+}
+}
+@include tablet(){
+ .stats{
+    flex-direction: column;
+ }
+ .stats_child{
+    padding: 30px 0;
+    border-bottom: 1px solid white;
+    border-right: none;
+       @include flex(column);
+       width: 100%;
+}
+.stats_child h3{
+    text-align: center;
+}
+}

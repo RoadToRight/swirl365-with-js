@@ -1,0 +1,310 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.navbar {
+    @include flex();
+    padding: 20px 20px;
+    background-color: transparent;
+    position: sticky;
+    // position: fixed;
+    top: 10px;
+    z-index: 999;
+    max-width: 1200px;
+    margin: 0 auto;
+    // left:50%;
+    // transform: translate(-50%);
+        // box-shadow: 0px 0px 30px 0px rgba(199, 7, 228, 0.2);
+         box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+        border-radius: 15px;
+        background:white;
+}
+
+.container_parent {
+    @include flex(row, space-between);
+}
+
+.purple_webdev {
+    color: white;
+    background-color: #C707E4;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: 700;
+}
+
+.list li {
+    position: relative;
+}
+
+.list li::after {
+    content: "";
+    background-color: #C707E4;
+    height: 5px;
+    width: 0px;
+    position: absolute;
+    bottom: -7px;
+    left: 0px;
+    transition: all 300ms ease;
+    border-radius: 30px;
+    margin-top: 7px;
+}
+
+.list li:hover::after {
+    width: 100%;
+}
+
+.navbar ul {
+    @include flex();
+    gap: 20px;
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+}
+
+.navbar a {
+    // color: rgb(255, 255, 255);
+    color: black;
+}
+
+.logo h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    gap: 2px;
+
+}
+
+.animated_gradient_text {
+    color: white;
+}
+
+.line {
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    width: 30px;
+    display: inline-block;
+    position: absolute;
+}
+
+.lines {
+    position: absolute;
+    right: 55px;
+    top: 50px;
+    display: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.line1 {
+    transform: rotate(45deg);
+}
+
+.line2 {
+    transform: rotate(-45deg);
+
+}
+
+.hamburger {
+    font-size: 40px;
+    @include flex();
+    color: white;
+    display: none;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.dnone {
+    display: none;
+}
+
+.dblock {
+    display: block;
+}
+
+/* From Uiverse.io by 3bdel3ziz-T */
+/* The switch container */
+.switch {
+    --transition: 300ms;
+    --transition500: 500ms;
+    --color-dark: #0c0f14;
+    --color-darkGray: #21262e;
+    --color-gray: #52555a;
+    --color-offwhite: #cecece;
+    --shadow-color: var(--color-dark);
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: fit-content;
+    background-color: var(--color-dark);
+    border-radius: 30px;
+    // padding: 4px;
+    transition: var(--transition500);
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Svg styles */
+.switch .svg {
+    transition: var(--transition);
+    position: absolute;
+    left: 5px;
+}
+
+.switch .moon {
+    width: 18px;
+    fill: var(--color-gray);
+    opacity: 1;
+}
+
+.switch .sun {
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: calc(100% - 21.5px);
+    top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 0.8;
+    opacity: 0;
+}
+
+.switch .sun .dot {
+    positon: relative;
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-dark);
+    background: white;
+    z-index: 1;
+    box-shadow: 11px 0px 0px var(--shadow-color),
+        10.3px 0px 0px var(--shadow-color), -11px 0px 0px var(--shadow-color),
+        -10.3px 0px 0px var(--shadow-color), 0px -11px 0px var(--shadow-color),
+        0px -10.3px 0px var(--shadow-color), 0px 11px 0px var(--shadow-color),
+        0px 10.3px 0px var(--shadow-color), 8px 8px 0px var(--shadow-color),
+        7.3px 7.3px 0px var(--shadow-color), 8px -8px 0px var(--shadow-color),
+        7.3px -7.3px 0px var(--shadow-color), -8px -8px 0px var(--shadow-color),
+        -7.3px -7.3px 0px var(--shadow-color), -8px 8px 0px var(--shadow-color),
+        -7.3px 7.3px 0px var(--shadow-color);
+}
+
+.switch .sun .dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--color-dark);
+}
+
+/*checkbox styles */
+.switch .circle {
+    appearance: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 0;
+    background-color: var(--color-darkGray);
+    border: 1px solid var(--color-darkGray);
+    transition: var(--transition500);
+    box-shadow: 1px 1px 20px 3px var(--color-darkGray);
+}
+
+.switch:has(.circle:checked) {
+    background: var(--color-offwhite);
+}
+
+.switch .circle:hover {
+    margin-left: 3px;
+}
+
+.switch .circle:checked:hover {
+    margin-left: -3px;
+}
+
+.switch .circle:checked {
+    left: calc(100% - 32px);
+    background: white;
+    border-color: white;
+    box-shadow: 1px 1px 30px 12px white;
+}
+
+.switch:has(.circle:checked)>.sun {
+    opacity: 1;
+}
+
+.switch:has(.circle:checked)>.moon {
+    opacity: 0;
+}
+
+@keyframes animateGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@include NineNine2() {
+
+    .navbar ul {
+        flex-direction: column;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        height: 100vh;
+        padding: 30px 60px;
+        transform: translateX(100%);
+        width: 53%;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+    .navbar ul[data-mobileul="true"] {
+        // width: 54%;
+        transform: translateX(0);
+
+    }
+
+    .hamburger {
+        display: flex;
+
+    }
+
+    .lines {
+        display: block;
+    }
+
+
+}
+
+@include tablet() {}
+
+@include largemobile() {
+
+
+    .navbar ul[data-mobileul="true"] {
+        width: 100%;
+        padding: 30px 60px;
+    }
+
+}

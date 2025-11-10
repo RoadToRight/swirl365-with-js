@@ -1,0 +1,58 @@
+@use "./media.module" as *;
+@use "./mixin.module" as *;
+
+.slider_Section {
+  @include flex();
+
+  overflow: hidden;
+  padding: 0px 0px 20px 0px;
+}
+
+.container_parent {
+
+  display: flex;
+  --gap: 100px;
+  gap: var(--gap);
+  user-select: none;
+  align-self: flex-start;
+  width: 100vw;
+
+}
+ .MarqueeText{
+  text-align: center;
+  padding-top: 60px;
+   padding-bottom: 30px;
+ }
+
+.track {
+  @include flex();
+  gap: var(--gap);
+  flex-shrink: 0;
+
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.track img {
+  flex-shrink: 0;
+ 
+}
+.marquee_right_Parent{
+  flex-direction: row-reverse;
+}
+.marquee_right{
+    animation: scrollRight 30s linear infinite;
+}
+.marquee_left{
+    animation: scrollLeft 30s linear infinite;
+}
+@keyframes scrollLeft {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+@keyframes scrollRight {
+  to {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+}

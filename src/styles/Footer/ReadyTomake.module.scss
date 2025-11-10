@@ -1,0 +1,58 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.ReadyToMake{
+    background-color: #230646;
+    @include PaddingPage();
+    @include flex(row, center, start);
+    padding-top: 0px;
+         margin-top: 50px;
+}
+.container{
+    width: 1150px;
+}
+.ReadyToMake h3{
+    @include heading(black, 1.5rem);
+
+}
+.ReadyToMake p{
+    @include colorText(black);
+    margin: 0;
+}
+.ReadyToMake .btn{
+    @include btn();
+}
+.ready{
+    background-color: white;
+    border-radius: 16px;
+    padding: 50px;
+       @include flex(row, space-between, center);
+       margin-top: -50px;
+         box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3);
+
+}
+@include NineNine2(){
+    .ready{
+
+    padding: 30px;
+
+}
+}
+@include tablet(){
+    .ready{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+        padding: 20px;
+}
+.ReadyToMake p{
+    padding: 10px ;
+}
+}
+@include largemobile(){
+    .ReadyToMake h3{
+    font-size: 1.6rem;
+
+}
+}

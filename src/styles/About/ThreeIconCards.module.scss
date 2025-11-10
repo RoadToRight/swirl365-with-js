@@ -1,0 +1,41 @@
+@use "../media.module" as *;
+@use "../mixin.module" as *;
+
+.threeIconCards{
+    @include flex();
+}
+.container_threeIconCard{
+     @include flex();
+        //  @include PaddingPage();
+        padding: 80px 20px;
+     gap: 30px;
+}
+.card h2{
+    font-weight: 700;
+    margin-top:20px;
+    display: block;
+    font-size: 20px;
+}
+.card h3{
+    color: #C707E4;
+    font-weight: 700;
+    cursor: pointer;
+}
+.card p{
+    @include colorText(black);
+}
+.container{
+    width: 1150px;
+}
+@include TwelveHundred {
+    .container {
+        width: 100%;
+    }
+}
+@include NineNine2 {
+    .container_threeIconCard {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+}

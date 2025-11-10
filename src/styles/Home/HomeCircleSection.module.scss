@@ -1,0 +1,209 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.HomeCircleSection{
+    @include flex(column);
+    @include PaddingPage();
+
+}
+.animationCircle {
+    @include grid(1fr 1fr);
+    padding-top: 80px;
+    padding-bottom: 80px;
+    gap: 100px;
+    .text {
+        width: 100%;
+
+        button {
+            @include btn(white, black, none);
+        }
+    }
+
+    p {
+        @include colorText("black");
+        width: 470px;
+    }
+}
+.animationCircle2 p{
+    width: 100%;
+}
+.animationCircle2 .text{
+    padding-left: 60px;
+}
+
+
+.circleDiv {
+    position: relative;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    @include heading("black");
+    width: 460px;
+
+}
+
+.labels {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 100%;
+}
+
+.labelsCircle {
+    width: 170px;
+    height: 170px;
+    // background-color: black;
+    position: absolute;
+    border-radius: 100px;
+        will-change: transform;
+        transform: scale3d(1,1,1);
+}
+
+.labelsCircle1 {
+    margin-right: 70%;
+ 
+    @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729277/animation1_jkeek2.webp")
+}
+
+.labelsCircle2 {
+    margin-bottom: 70%;
+     @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729275/animation2_thjanc.webp")
+}
+
+.labelsCircle3 {
+    margin-top: 70%;  
+
+    @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729267/animation3_rtnqu1.webp")
+}
+
+.labelsCircle4 {
+    margin-left: 70%;
+    @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729266/animation4_zaycg8.webp")
+}
+
+.labelsCircle5 {
+    margin-right: 70%;
+  @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729264/Website1_xiyhtj.webp")
+}
+
+.labelsCircle6 {
+    margin-bottom: 70%;
+  @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729262/Website2_l8w6es.webp")
+}
+
+.labelsCircle7 {
+    margin-top: 70%;  
+  @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729260/Website3_vbvlsc.webp")
+}
+
+.labelsCircle8 {
+    margin-left: 70%;
+  @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762729261/Website4_efmpoc.webp")
+}
+.circle_text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+.imgBg {
+    width: 460px;
+}
+
+// 1200px and down
+
+@include TwelveHundred() {
+ 
+    .animationCircle{
+        gap: 20px;
+    }
+    .imgBg {
+        width: 360px;
+    }
+
+    .labels {
+        width: 450px;
+    }
+
+    .labelsCircle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .circleDiv {
+        width: 480px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .animationCircle{
+        grid-template-columns: 1fr;
+    }
+    .heading {
+        width: 500px;
+    }
+
+    .text {
+        @include flex(column);
+        text-align: center;
+        padding-top: 60px;
+    }
+    .animationCircle:nth-child(2) .text{
+        order: 1;
+    }
+    .animationCircle2 .text{
+    padding-left: 0px;
+}
+    .heading,
+    .circleDiv,
+    .animationCircle p {
+        width: auto;
+    }
+
+}
+
+@include tablet {
+    .imgBg {
+        width: 300px;
+    }
+
+    .labels {
+        width: 360px;
+    }
+
+    .labelsCircle {
+        width: 105px;
+        height: 105px;
+    }
+
+
+}
+
+@include smallmobile {
+    .imgBg {
+        width: 240px;
+    }
+
+    .labels {
+        width: 300px;
+    }
+
+    .labelsCircle {
+        width: 100px;
+        height: 100px;
+    }
+}
