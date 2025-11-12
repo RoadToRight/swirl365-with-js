@@ -12,8 +12,8 @@ const Video = () => {
         playsInline
         className={css.video}
       >
-        <source src="https://res.cloudinary.com/diyha1kd9/video/upload/v1741212763/Swirl_Starting_Video_1_gyku2k.mp4" type="video/mp4" />
-        <source src="https://res.cloudinary.com/diyha1kd9/video/upload/v1741212763/Swirl_Starting_Video_1_gyku2k.webm" type="video/webm" />
+        <source src="https://res.cloudinary.com/dp6b6emb9/video/upload/v1762913266/Swirl_Starting_Video_1_gyku2k_online-video-cutter.com_online-video-cutter.com_1_rbtp8j.mp4" type="video/mp4" />
+        {/* <source src="https://res.cloudinary.com/dp6b6emb9/video/upload/v1762913266/Swirl_Starting_Video_1_gyku2k_online-video-cutter.com_online-video-cutter.com_1_rbtp8j.webm" type="video/webm" /> */}
         <track
           src="captions.vtt"
           kind="captions"
