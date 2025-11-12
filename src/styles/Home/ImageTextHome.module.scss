@@ -1,0 +1,102 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.Section_Four_Home {
+    @include flex();
+    gap: 40px;
+    @include PaddingPage();
+    @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760203263/Pruple_Sec_bg_h0oj8i.webp");
+}
+.Section_Four_Home .container_parent{
+     @include flex();
+     margin: 0 auto;
+     
+         gap: 80px;
+}
+.image_section {
+    width: 100%;
+    height: 100%;
+    @include flex(row, end, center);
+}
+
+.text_Section {
+    @include flex(column, start, start);
+    width: 100%;
+}
+
+.text_Section h2 {
+    @include heading(white,2.4rem);
+}
+
+.text_Section p {
+    @include colorText();
+    max-width: 400px;
+}
+
+.text_Section button {
+    @include btn(white, black, none);
+}
+.text_Section header{
+    @include flex(column,start,start);
+}
+
+// Media Queries ---------------------------------------
+
+@include TwelveHundred {
+    .Section_Four_Home {
+        gap: 20px;
+    }
+
+    .image_section img {
+        width: 100%;
+        height: 100%
+    }
+}
+
+@include NineNine2 {
+
+    //  Parent
+    .Section_Four_Home {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    // First Section
+    .image_section {
+        justify-content: center;
+    }
+
+    .image_section img {
+        width: 80%;
+        height: 100%;
+    }
+
+    // Second Section
+    .text_Section {
+        @include flex(column, center, center);
+        text-align: center;
+    }
+
+    .text_Section p {
+        max-width: 600px;
+    }
+}
+
+@include tablet {
+    .image_section img {
+        width: 100%;
+        height: 100%;
+    }
+
+    // Second Section
+    .text_Section p {
+        max-width: 100%;
+    }
+}
+
+@include largemobile {
+
+    //  Parent
+    .Section_Four_Home {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -4,13 +4,18 @@ import React, { useState } from 'react'
 import css from "../../styles/Navbar/NavBar.module.scss"
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from '@/store/darkModeSlice';
 
 const Navlist = () => {
     const [ToggleNav, setToggleNav] = useState(false);
-    const [DarkLight, setDarkLight] = useState(true)
-
+      const [checked, setChecked] = React.useState(false);
+    // const [DarkLight, setDarkLight] = useState(true)
+   const dispatch = useDispatch();
+const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
      const ModeChanger = () => {
-    setDarkLight((props) => !props);
+      dispatch(toggleDarkMode())
+    // setDarkLight((props) => !props);
   };
     return (
         <div>
@@ -28,13 +33,13 @@ const Navlist = () => {
                 <Link href={"/Contact"}><li>CONTACT</li></Link>
                 <li>
                      <div>
-            <label className={css.switch} htmlFor="switch">
+            <label className={css.switch} htmlFor="switch"  onClick={() => ModeChanger()}>
               <input
                 id={css.switch}
                 type="checkbox"
                 className={css.circle}
-                defaultChecked={DarkLight}
-                onClick={() => ModeChanger()}
+                onChange={() => setChecked(isDarkMode)}
+               checked={checked}
               />
               <svg
                 viewBox="0 0 384 512"
@@ -47,6 +52,7 @@ const Navlist = () => {
                 <span className={css.dot}></span>
               </div>
             </label>
+
           </div>
                 </li>
             </ul>

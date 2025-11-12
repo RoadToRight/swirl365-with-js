@@ -1,0 +1,82 @@
+@use "../media.module" as *;
+@use "../mixin.module" as *;
+
+.slider_Section {
+  @include flex();
+
+  overflow: hidden;
+  padding: 0px 0px 20px 0px;
+}
+
+.container_parent {
+
+  display: flex;
+  --gap: 100px;
+  gap: var(--gap);
+  user-select: none;
+  align-self: flex-start;
+  width: 100vw;
+
+}
+ .MarqueeText{
+  text-align: center;
+  padding-top: 60px;
+   padding-bottom: 30px;
+ }
+
+.track {
+  @include flex();
+  gap: var(--gap);
+  flex-shrink: 0;
+
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+.images:hover .overlay{
+   
+    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:all 300ms ease;
+}
+.play_btn {
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,1))
+    drop-shadow(0 0 20px rgba(255,255,255,0.1))
+    drop-shadow(0 0 40px rgba(255,255,255,0.2));
+
+    cursor: pointer;
+}
+
+.track img {
+  flex-shrink: 0;
+ 
+}
+.marquee_right_Parent{
+  flex-direction: row-reverse;
+}
+.marquee_right{
+    animation: scrollRight 30s linear infinite;
+}
+.marquee_left{
+    animation: scrollLeft 30s linear infinite;
+}
+@keyframes scrollLeft {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+@keyframes scrollRight {
+  to {
+    transform: translateX(calc(100% + var(--gap)));
+  }
+}

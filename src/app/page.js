@@ -5,6 +5,7 @@ import Video from "@/components/Home/HomeVideo";
 import Circle from "@/components/Home/HomeCircleSection";
 import Marquee from "@/components/Marquee";
 import Projectslider from "@/components/Home/ProjectSlider";
+import ImageText from "@/components/Home/ImageTextHome";
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Marquee   direction={"left"}  HeaderText={true}/>
       <Circle />
       <Projectslider />
+      <ImageText />
     </section>
   );
 }

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import css from '../../styles/admin/admin.module.scss';
 import { IoIosArrowDown } from "react-icons/io";
+import Link from 'next/link';
 
 const Dashboard = () => {
 
@@ -37,7 +38,7 @@ const Dashboard = () => {
 
 
                         </li>
-                        <li className={css.menuItem}>Users</li>
+                        <Link href={"/admin/users"}><li className={css.menuItem}>Users</li></Link>
                         <li className={css.menuItem}>Settings</li>
                     </ul>
 
@@ -46,7 +47,8 @@ const Dashboard = () => {
             </div>
 
             <div className={css.main}>
-
+                <h2>All Users</h2>
+                
             </div>
 
         </section>

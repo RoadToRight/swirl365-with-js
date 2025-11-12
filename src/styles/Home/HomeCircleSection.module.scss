@@ -5,6 +5,12 @@
     @include flex(column);
     @include PaddingPage();
 
+    // Dark mode
+    // background:black;
+    background-image:url("https://res.cloudinary.com/dp6b6emb9/image/upload/v1762819126/image_3_1_hsen6s.webp");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 .animationCircle {
     @include grid(1fr 1fr);

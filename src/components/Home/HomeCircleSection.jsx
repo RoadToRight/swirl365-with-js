@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import css from "../../styles/Home/HomeCircleSection.module.scss"
 import Link from 'next/link'
+import {  useSelector } from 'react-redux'
 
 const Circle = () => {
 
@@ -44,9 +45,12 @@ const Circle = () => {
     };
 
 
+    const isDarkMode= useSelector((state) => state.darkMode.isDarkMode);
+   
+        console.log(isDarkMode)
 
     return (
-        <section className={css.HomeCircleSection}>
+        <section className={css.HomeCircleSection} style={{background:`${isDarkMode ? "black" : "yellow"}`}}>
 
             <div className={`${css.animationCircle} container`}>
                 <div className={css.circleDiv}>

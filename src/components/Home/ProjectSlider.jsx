@@ -6,8 +6,16 @@ import { FaPlay } from "react-icons/fa";
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import Marquee from '../Marquee';
+import ProjectMarquee from './ProjectMarquee';
+import { MdCancel } from "react-icons/md";
+
+
+
 const Projectslider = () => {
   const containerRef = useRef(null);
+  const [OpenVideo, setOpenVideo] = useState(false);
+  const [VideoUrl, setVideoUrl] = useState("")
+
   const [images, setImages] = useState([
     "/IMAGE (5).png",
     "/IMAGE (6).png",
@@ -42,9 +50,24 @@ const Projectslider = () => {
     // { images: "https://res.cloudinary.com/dp6b6emb9/image/upload/v1760267085/rixius_swirl365_ug0pzu.webp", alt: "" },
   ]
 
+  const HandleClickVideo = (url) => {
+    setOpenVideo((prev) => !prev);
+    if(url){
+      setVideoUrl(url)
+    }
+  }
+
 
   return (
     <section className={css.projectslider}>
+
+      {OpenVideo ?
+        <>
+          <div className={css.close_btn} onClick={() => HandleClickVideo()}><MdCancel size={40} color='#c707e4' /></div>
+          <iframe className={css.video} width="95%" height="85%" src={VideoUrl} title="Swirl365 Youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </> : null
+      }
+
 
       <header>
         <h2>Powerful videos crafted through a tried-and-true creative production process</h2>
@@ -58,20 +81,20 @@ const Projectslider = () => {
         slidesPerView={2.5}
         centeredSlides={true}
         loop={true}
-        autoplay={true}
+      // autoplay={true}
       >
-        
+
 
         {
-          Slider1Image?.map((slide,index) => {
+          Slider1Image?.map((slide, index) => {
             return (
               <SwiperSlide className={css.project_slide}>
                 <img src={slide.images} alt="" className={css.slider_img} />
-                
-              <div className={css.overlay}>
-              <FaPlay size={35} color='white'/>
-              </div>
-              
+
+                <div className={css.overlay}>
+                  <FaPlay className={css.play_btn} size={35} color='white' onClick={() => HandleClickVideo(slide.url)} />
+                </div>
+
               </SwiperSlide>
             )
           })
@@ -79,8 +102,8 @@ const Projectslider = () => {
 
       </Swiper>
 
-      <Marquee images={Slider2Image} direction='left' width={"360px"} gap="20px" />
-      <Marquee images={Slider3Image} direction='right' width={"360px"} gap="20px" />
+      <ProjectMarquee images={Slider2Image} direction='left' width={"360px"} gap="20px" HandleClickVideo={HandleClickVideo} />
+      <ProjectMarquee images={Slider3Image} direction='right' width={"360px"} gap="20px"  HandleClickVideo={HandleClickVideo}/>
 
 
 
