@@ -8,13 +8,19 @@ import { Autoplay } from 'swiper/modules';
 import Marquee from '../Marquee';
 import ProjectMarquee from './ProjectMarquee';
 import { MdCancel } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+import { handleVideoPlayer, toggleVideoIframeOpen, VideoUrlBucket } from '@/store/VideoSlice';
 
 
 
 const Projectslider = () => {
   const containerRef = useRef(null);
-  const [OpenVideo, setOpenVideo] = useState(false);
-  const [VideoUrl, setVideoUrl] = useState("")
+  // const [OpenVideo, setOpenVideo] = useState(false);
+  // const [VideoUrl, setVideoUrl] = useState("")
+
+  const OpenVideo = useSelector((state) => state.VideoIframe.isVideoIframeOpen)
+  const VideoUrl = useSelector((state) => state.VideoIframe.VideoUrl)
+  const dispatch = useDispatch();
 
   const [images, setImages] = useState([
     "/IMAGE (5).png",
@@ -50,23 +56,12 @@ const Projectslider = () => {
     // { images: "https://res.cloudinary.com/dp6b6emb9/image/upload/v1760267085/rixius_swirl365_ug0pzu.webp", alt: "" },
   ]
 
-  const HandleClickVideo = (url) => {
-    setOpenVideo((prev) => !prev);
-    if(url){
-      setVideoUrl(url)
-    }
-  }
+
 
 
   return (
     <section className={css.projectslider}>
 
-      {OpenVideo ?
-        <>
-          <div className={css.close_btn} onClick={() => HandleClickVideo()}><MdCancel size={40} color='#c707e4' /></div>
-          <iframe className={css.video} width="95%" height="85%" src={VideoUrl} title="Swirl365 Youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </> : null
-      }
 
 
       <header>
@@ -92,7 +87,7 @@ const Projectslider = () => {
                 <img src={slide.images} alt="" className={css.slider_img} />
 
                 <div className={css.overlay}>
-                  <FaPlay className={css.play_btn} size={35} color='white' onClick={() => HandleClickVideo(slide.url)} />
+                  <FaPlay className={css.play_btn} size={35} color='white' onClick={() => dispatch(handleVideoPlayer(slide.url))} />
                 </div>
 
               </SwiperSlide>
@@ -102,8 +97,8 @@ const Projectslider = () => {
 
       </Swiper>
 
-      <ProjectMarquee images={Slider2Image} direction='left' width={"360px"} gap="20px" HandleClickVideo={HandleClickVideo} />
-      <ProjectMarquee images={Slider3Image} direction='right' width={"360px"} gap="20px"  HandleClickVideo={HandleClickVideo}/>
+      <ProjectMarquee images={Slider2Image} direction='left' width={"360px"} gap="20px" HandleClickVideo={handleVideoPlayer} />
+      <ProjectMarquee images={Slider3Image} direction='right' width={"360px"} gap="20px" HandleClickVideo={handleVideoPlayer} />
 
 
 

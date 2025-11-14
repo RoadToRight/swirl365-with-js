@@ -3,14 +3,17 @@ import React, { useState } from 'react'
 import css from "../../styles/Creations/creations.module.scss";
 import { useParams, useRouter } from 'next/navigation';
 import { RxCaretDown } from "react-icons/rx";
-import { useSpecificPortfolioQuery } from '@/store/Api/PortfolioAPi';
+import { useGetPortfolioQuery, useSpecificPortfolioQuery } from '@/store/Api/PortfolioAPi';
+import { FaPlay } from 'react-icons/fa';
+import { handleVideoPlayer } from '@/store/VideoSlice';
 
 const Dynamic = () => {
 
     let slug = useParams();
 
 
-    const [SelectOpen, setSelectOpen] = useState(false)
+    const [SelectOpen, setSelectOpen] = useState(false);
+    const [page, setpage] = useState(0)
 
     let router = useRouter();
     const [options, setoptions] = useState(["All", "2D Animation", "3D Animation", "Motion Graphics"])
@@ -40,7 +43,11 @@ const Dynamic = () => {
 
 
 
-    const { data } = useSpecificPortfolioQuery(SelectValue.replace(/\s+/g, "-").toLowerCase().trim());
+    // const { data } = useSpecificPortfolioQuery(SelectValue.replace(/\s+/g, "-").toLowerCase().trim());
+    const { data } = useGetPortfolioQuery({ skip: page * 20, limit: 20 })
+    const dispatch = useDispatch();
+
+    console.log(data)
 
 
 
@@ -85,7 +92,23 @@ const Dynamic = () => {
             </div>
 
             <div className={css.grid_conatiner}>
-                <div className={css.item}>
+
+                {
+                    data?.Portfolio.map(({poster,video,name,_id}, index) => {
+                        return (
+                            <div key={_id} className={css.item} style={{backgroundImage:`url(${poster})`}}>
+                                <div className={css.bg_black}>
+                                    <div className={css.play_btn}>
+                                             <FaPlay className={css.play_btn} size={35} color='white' onClick={() => dispatch(handleVideoPlayer(slide.url))} />
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+
+
+                {/* <div className={css.item}>
                     <div className={css.bg_pink}>
                         <div className={css.play_btn}></div>
                     </div>
@@ -99,12 +122,8 @@ const Dynamic = () => {
                     <div className={css.bg_pink}>
                         <div className={css.play_btn}></div>
                     </div>
-                </div>
-                <div className={css.item}>
-                    <div className={css.bg_pink}>
-                        <div className={css.play_btn}></div>
-                    </div>
-                </div>
+                </div> */}
+
             </div>
 
         </div>

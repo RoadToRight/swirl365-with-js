@@ -1,0 +1,166 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.Quotes {
+    display: grid;
+    grid-template-columns: 355px 355px 415px;
+    grid-template-areas:
+        "quote-1 quote-3 quote-6"
+        "quote-2 quote-4 ."
+        ".       quote-5 .";
+    gap: 10px;
+    place-content: center;
+    place-items: center;
+}
+
+.section7 {
+    @include PaddingPage();
+    @include flex(column);
+    gap: 30px
+}
+
+.section7 header {
+    @include flex(column);
+    text-align: center;
+    gap: 20px;
+}
+
+.section7 header small {
+    color: #C707E4;
+}
+
+.section7 h2 {
+    @include heading(black);
+}
+
+.quote {
+    @include Background("/Quotesbg.png");
+    background-position: top;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: start;
+    border-radius: 12px;
+    gap: 20px;
+    line-height: 27px;
+    width: 100%;
+    font-weight: 500;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.quote_one_two {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 339px;
+}
+
+.quote_one_two> :nth-child(1) {
+    height: 380px;
+}
+
+.quote_one_two> :nth-child(2) {
+    height: 200px;
+}
+
+.quote_three_four_five {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 370px;
+}
+
+.quote1 .text {
+    width: 250px;
+}
+
+.quote6 {
+    width: 400px;
+    height: 600px;
+}
+
+.quote6 .text {
+    width: 330px;
+}
+
+
+@include TwelveHundred() {
+    .Quotes {
+        grid-template-columns: 280px 280px 420px;
+    }
+
+    .quote {
+        padding: 26px 20px;
+    }
+
+    .quote_one_two {
+        width: 260px;
+        gap: 36px;
+    }
+
+    .quote_three_four_five {
+        width: 300px;
+    }
+
+    .quote1 .text {
+
+        width: 210px;
+    }
+
+    .quote6 {
+        width: 400px;
+    }
+
+    .quote6 .text {
+        width: 320px;
+    }
+
+    .quote_one_two> :nth-child(1) {
+        height: 360px;
+    }
+
+    .quote_one_two> :nth-child(2) {
+        height: 190px;
+    }
+
+    .quote6 {
+
+        height: 588px;
+    }
+}
+
+@media (max-width:1020px) {
+    .quote6 {
+        display: none;
+    }
+
+    .Quotes {
+        grid-template-columns: 280px 280px;
+    }
+
+}
+
+@include tablet() {
+    .quote_one_two {
+        display: none;
+    }
+
+    .Quotes {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: none;
+    }
+
+    .section7 h2 {
+        @include heading(black, 2rem);
+    }
+
+}
+
+@include largemobile() {
+
+    .section7 h2 {
+        font-size: 1.7rem;
+    }
+
+}

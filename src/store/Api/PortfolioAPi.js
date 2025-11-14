@@ -4,7 +4,7 @@ export const api = createApi({
     baseQuery:fetchBaseQuery({baseUrl:"http://localhost:4000/api/v1"}),
     endpoints:(builder) => ({
         getPortfolio:builder.query({
-            query:() => "/getPortfolio"
+            query:({skip,limit}) => `/portfolio?skip=${skip}&?limit=${limit}`
         }),
         specificPortfolio:builder.query({
             query:(slug) => `/portfolio/${slug}`

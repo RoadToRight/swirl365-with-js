@@ -25,20 +25,21 @@
     align-items: center;
     justify-content: space-between;
 }
-.options{
+
+.options {
     position: absolute;
     z-index: 3;
     background-color: white;
     width: 100%;
     left: 0px;
-    top:calc(100% + 10px);
+    top: calc(100% + 10px);
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     transition: all 300ms ease;
     overflow: auto;
-    
+
 }
 
 .item:first-child {
@@ -65,7 +66,7 @@
     width: 100%;
     transition: all 300ms ease-in-out;
     cursor: pointer;
-    background: url("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760267098/quickvila_swirl365_rzev04.webp");
+    // background: url("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760267098/quickvila_swirl365_rzev04.webp");
     background-size: cover;
     background-position: center;
 }
@@ -78,13 +79,13 @@
     background-color: black;
     width: 100%;
     opacity: 0.6;
-    border-radius: 0px 0px 400px 0px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 .bg_black {
     width: 0%;
     height: 100%;
-    border-radius: 0px 0px 400px 0px;
+    border-radius: 0px 400px 400px 0px;
     transition: all 300ms ease-in-out;
     position: relative;
 }
@@ -122,10 +123,12 @@
     gap: 20px;
     margin: 0 auto;
 }
-.input_btn .select label{
+
+.input_btn .select label {
     text-transform: capitalize;
 
 }
+
 .input_btn>* {
     width: 100%;
 }
@@ -165,12 +168,13 @@
 
 @include largemobile {
     .input_btn {
-    flex-direction: column;
-    gap: 10px;
-}
-.select label{
-    text-align:center;
-    width:100%
-}
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .select label {
+        text-align: center;
+        width: 100%
+    }
 
 }

@@ -1,0 +1,72 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.reviewslideSection{
+     @include flex(column);
+        @include PaddingPage();
+}
+.reviewslideSection h2{
+    @include heading(black);
+    text-align: center;
+    width: 80%;
+}
+.container{
+    max-width: 1150px;
+    margin: 0 auto;
+    // @include flex(column);
+}
+.cards_section{
+    @include flex();
+    gap: 20px;
+     padding: 40px 0px;
+
+}
+.card{
+    // background-color: red;
+}
+.card figcaption{
+        @include flex(column,start,start);
+        gap: 10px;
+}
+.name{
+    font-weight: 1000;
+}
+.designation{
+    font-size: 18px;
+}
+.card{
+    @include flex(column,start,start);
+    gap: 10px;
+}
+.img1{
+    width: 100%;
+}
+.img1 img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+@include TwelveHundred(){
+    .container{
+    width: 100%;
+    padding: 0px 20px;
+}
+}
+@include NineNine2(){
+.cards_section{
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.card{
+  width: 44%;
+}
+}
+
+@include tablet(){
+    .card{
+  width: 95%;
+}
+.reviewslideSection h2{
+    width: 100%;
+}
+}
