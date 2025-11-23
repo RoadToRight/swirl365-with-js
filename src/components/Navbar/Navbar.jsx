@@ -8,6 +8,7 @@ const Navbar = () => {
 
 
   return (
+
     <nav className={`${css.navbar} Navbar_Home`}>
       <header className={`${css.container_parent} container`}>
         <div className={css.logo}>
@@ -24,7 +25,8 @@ const Navbar = () => {
 
         <Navlist />
       </header>
-    </nav>
+    </nav> 
+ 
   )
 }
 

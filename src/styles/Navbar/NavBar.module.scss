@@ -13,14 +13,19 @@
     margin: 0 auto;
     // left:50%;
     // transform: translate(-50%);
-        // box-shadow: 0px 0px 30px 0px rgba(199, 7, 228, 0.2);
-         box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
-        border-radius: 15px;
-        background:white;
+    // box-shadow: 0px 0px 30px 0px rgba(199, 7, 228, 0.2);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    background: white;
+    width: 90%;
 }
 
 .container_parent {
     @include flex(row, space-between);
+}
+
+.Nav_section {
+    position: relative;
 }
 
 .purple_webdev {
@@ -50,6 +55,14 @@
 
 .list li:hover::after {
     width: 100%;
+}
+
+.list a:nth-child(2) li::after {
+    display: none;
+}
+
+.list li:nth-child(7)::after {
+    display: none;
 }
 
 .navbar ul {
@@ -99,6 +112,7 @@
 
 .line1 {
     transform: rotate(45deg);
+
 }
 
 .line2 {
@@ -109,12 +123,21 @@
 .hamburger {
     font-size: 40px;
     @include flex();
-    color: white;
+    // color: rgb(0, 0, 0);
     display: none;
-    background-color: transparent;
     box-shadow: none;
     border: none;
+    background: transparent;
+    color: #82155A;
 }
+
+// .hamicon {
+//   width: 40px;
+//   height: 40px;
+//   /* Remove text tricks, we will use SVG fill */
+//   display: block;
+// }
+
 
 .dnone {
     display: none;
@@ -268,7 +291,7 @@
     .navbar ul {
         flex-direction: column;
         position: absolute;
-        right: 0px;
+
         top: 0px;
         height: 100vh;
         padding: 30px 60px;
@@ -276,13 +299,37 @@
         width: 53%;
         position: fixed;
         top: 0;
-        right: 0;
+        right: -60px;
+    }
+
+    .navbar ul[data-darkmode="true"] {
+        background-color: rgb(0, 0, 0);
+    }
+
+    .navbar ul[data-darkmode="true"] .line {
+        background-color: white;
+    }
+
+    .navbar ul[data-darkmode="false"] {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .navbar ul[data-darkmode="false"] .line {
+        background-color: rgb(0, 0, 0);
+    }
+       .navbar ul[data-darkmode="true"] a {
+       color:rgb(255, 255, 255);
     }
 
     .navbar ul[data-mobileul="true"] {
         // width: 54%;
         transform: translateX(0);
 
+    }
+
+    .navbar ul[data-mobileul="true"] {
+        right: 0px;
+        border-radius: 15px;
     }
 
     .hamburger {

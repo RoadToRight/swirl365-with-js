@@ -10,7 +10,6 @@
 .Section_Four_Home .container_parent{
      @include flex();
      margin: 0 auto;
-     
          gap: 80px;
 }
 .image_section {
@@ -56,8 +55,10 @@
 @include NineNine2 {
 
     //  Parent
-    .Section_Four_Home {
+    .Section_Four_Home .container_parent {
+        display: grid;
         grid-template-columns: repeat(1, 1fr);
+        gap:30px;
     }
 
     // First Section

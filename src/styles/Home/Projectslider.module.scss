@@ -4,6 +4,7 @@
 
 .swiper{
     user-select: none;
+    margin-bottom:20px;
 }
 .slider_img{
     width: 100%;
@@ -11,6 +12,7 @@
 .projectslider{
     @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760204183/Project_Slider_BG_lkh9wt.webp");
    padding: 80px 0px ; 
+
 }
 .projectslider header{
       padding: 0px 20px 48px 20px; 
@@ -23,6 +25,13 @@
 }
 .project_slide{
     position: relative;
+    width: 800px !important;
+    flex-shrink: 0;
+}
+.project_slide img{
+    height: 400px ;
+    object-fit: cover;
+
 }
 .project_slide:hover .overlay{
    
@@ -73,7 +82,7 @@
 }
 .end_section{
     @include flex(column);
-    padding-top: 28px;
+    // padding-top: 28px;
 }
 .btn button{
     @include btn();
@@ -95,5 +104,27 @@ max-width: 430px;
 line-height: 25px;
 }
 
+@media (max-width:1170px){
+        .project_slide{
+    width: 600px !important;
+}
+.project_slide img{
+    height: 300px ;
+    object-fit: cover;
 
+}
+}
 
+@include tablet{
+    .swiper{
+        padding:0px 10px !important;
+    }
+            .project_slide{
+    width: 100% !important;
+}
+.project_slide img{
+    height: 100% ;
+    object-fit: cover;
+    max-height: 220px;
+}
+}

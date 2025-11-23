@@ -7,8 +7,8 @@ import Projectslider from "@/components/Home/ProjectSlider";
 import ImageText from "@/components/Home/ImageTextHome";
 import Counter from "@/components/Counter";
 import VideoIframe from "@/components/VideoIframe";
-import Quotes from "@/components/Home/HomeQuotesSection";
 import Reviews from "@/components/Home/HomeCardsSection";
+import QuotesSection from "@/components/Home/QuotesSection";
 
 export default function Home() {
 
@@ -21,7 +21,7 @@ export default function Home() {
       <Projectslider />
       <ImageText />
       <Counter />
-      <Quotes />
+      <QuotesSection />
       <Reviews />
     </section>
   );

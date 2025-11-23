@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ReduxProvider>
       <body className={`${inter.variable}`}>
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
       </ReduxProvider>
     </html>

@@ -8,38 +8,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleDarkMode } from '@/store/darkModeSlice';
 
 const Navlist = () => {
-    const [ToggleNav, setToggleNav] = useState(false);
-      const [checked, setChecked] = React.useState(false);
-    // const [DarkLight, setDarkLight] = useState(true)
-   const dispatch = useDispatch();
-const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
-     const ModeChanger = () => {
-      dispatch(toggleDarkMode())
+  const [ToggleNav, setToggleNav] = useState(false);
+  const [checked, setChecked] = React.useState(false);
+  // const [DarkLight, setDarkLight] = useState(true)
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
+  const ModeChanger = () => {
+    dispatch(toggleDarkMode())
     // setDarkLight((props) => !props);
   };
-    return (
-        <div>
-            <ul className={css.list} data-mobileul={ToggleNav} >
-                <button aria-label="Close menu" className={css.lines} onClick={() => setToggleNav(false)}>
-                    <span className={`${css.line} ${css.line1}`} ></span>
-                    <span className={`${css.line} ${css.line2}`}></span>
-                </button>
+  return (
+    <div>
+      <ul className={css.list} data-mobileul={ToggleNav} data-darkmode={isDarkMode} >
+        <button aria-label="Close menu" className={css.lines} onClick={() => setToggleNav(false)}>
+          <span className={`${css.line} ${css.line1}`} ></span>
+          <span className={`${css.line} ${css.line2}`}></span>
+        </button>
 
 
-                <Link href={"/webdevelopment"}><li className={css.purple_webdev}>WEB DEVELOPMENT</li></Link>
-               <Link href={"/Creations"}> <li>CREATIONS</li></Link>
-                <Link href={"/Pricing"}><li>PRICING</li></Link>
-                <Link href={"/About"}><li>ABOUT</li></Link>
-                <Link href={"/Contact"}><li>CONTACT</li></Link>
-                <li>
-                     <div>
-            <label className={css.switch} htmlFor="switch"  onClick={() => ModeChanger()}>
+        <Link href={"/webdevelopment"}><li className={css.purple_webdev}>WEB DEVELOPMENT</li></Link>
+        <Link href={"/Creations"}> <li>CREATIONS</li></Link>
+        <Link href={"/Pricing"}><li>PRICING</li></Link>
+        <Link href={"/About"}><li>ABOUT</li></Link>
+        <Link href={"/Contact"}><li>CONTACT</li></Link>
+        <li>
+          <div>
+            <label className={css.switch} htmlFor="switch" onClick={() => ModeChanger()}>
               <input
                 id={css.switch}
                 type="checkbox"
                 className={css.circle}
                 onChange={() => setChecked(isDarkMode)}
-               checked={checked}
+                checked={checked}
               />
               <svg
                 viewBox="0 0 384 512"
@@ -54,17 +54,17 @@ const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
             </label>
 
           </div>
-                </li>
-            </ul>
+        </li>
+      </ul>
 
-            <button aria-label="Open menu" className={`${css.hamburger}`} onClick={() => setToggleNav(true)}>
-                <GiHamburgerMenu />
-            </button>
+      <button aria-label="Open menu" className={`${css.hamburger}`} onClick={() => setToggleNav(true)}>
+        <GiHamburgerMenu className={css.hamicon} />
+      </button>
 
 
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Navlist

@@ -1,6 +1,9 @@
 import { handleVideoPlayer } from '@/store/VideoSlice';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import css from "../styles/Home/Projectslider.module.scss";
+import { MdCancel } from "react-icons/md";
+
 
 const VideoIframe = () => {
 
