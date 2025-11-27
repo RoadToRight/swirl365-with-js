@@ -1,0 +1,220 @@
+@use "../mixin.module" as *;
+@use "../media.module" as *;
+
+.contactSection {
+    @include Background("/Group 739.png");
+    @include PaddingPage();
+    @include flex();
+}
+
+
+.container_parent {
+    @include flex(column);
+    gap: 40px;
+}
+
+.contactSection header {
+    @include flex(column);
+}
+
+.contactSection header h1 {
+    @include heading(black);
+}
+
+.contactSection h2 {
+    @include heading(black, 2.2rem);
+}
+
+.contactSection p {
+    @include colorText(black);
+}
+
+.name input,
+.email_Section input {
+    background-color: #EBE1F9;
+}
+
+.email_Section {
+    width: 100%;
+}
+
+.name {
+    gap: 20px;
+}
+
+.name input {
+    width: 50%;
+
+}
+
+.selection_input {
+    @include flex(row, space-between);
+    width: 100%;
+    gap: 30px;
+}
+
+.selection_input select {
+    width: 50%;
+}
+
+.contactSection input {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+.contactSection select {
+    padding: 12px 18px 12px 12px;
+    border: none;
+    background-color: transparent;
+}
+
+.contactSection select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.textarea {
+    width: 100%;
+
+}
+
+.textarea textarea {
+    width: 100%;
+    padding: 4px 10px 4px 30px;
+    border: none;
+    background: transparent;
+}
+
+.textarea textarea:focus {
+    outline: none;
+}
+
+.textarea textarea::placeholder {
+    color: black;
+}
+
+.contactSection option {
+    padding: 12px 18px;
+}
+
+.email_Section input {
+    width: 100%;
+}
+
+.contactSection input:focus {
+    outline: none;
+}
+
+.contactSection input::placeholder {
+    color: black;
+}
+
+.two_section {
+    @include flex();
+    gap: 30px;
+}
+
+.two_section .text {
+    width: 50%;
+}
+
+.two_section .form {
+    width: 50%;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn button {
+    @include btn(white, black, 1px solid black);
+    width: 100%;
+}
+
+.form {}
+
+.form form {
+    background-color: #ffffff;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 9px;
+    padding: 30px;
+    @include flex(column, start, start);
+    gap: 20px;
+}
+
+.form .name {
+    width: 100%;
+    @include flex(row, space-between);
+}
+
+
+@include laptop() {
+    .name {
+        gap: 12px;
+    }
+
+    .selection_input {
+        gap: 9px;
+    }
+}
+
+@include NineNine2() {
+
+    .two_section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .two_section .text {
+        width: 100%;
+    }
+
+    .two_section .form {
+        width: 100%;
+    }
+
+}
+
+@include largemobile() {
+    .form form {
+        padding: 10px;
+    }
+
+    .form form input::placeholder {
+        font-size: 13px;
+    }
+
+    .name {
+        gap: 7px;
+    }
+
+    .textarea textarea {
+        padding: 4px 10px 4px 17px;
+    }
+
+    .selection_input {
+        flex-direction: column;
+    }
+
+    .selection_input select {
+        width: 100%;
+    }
+}
+
+@include smallmobile() {
+    .name {
+        flex-direction: column !important;
+        gap: 10px;
+    }
+
+    .name input {
+        width: 100%;
+    }
+
+    .form form {
+        gap: 10px;
+    }
+}

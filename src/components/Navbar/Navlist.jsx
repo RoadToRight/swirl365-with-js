@@ -9,7 +9,6 @@ import { toggleDarkMode } from '@/store/darkModeSlice';
 
 const Navlist = () => {
   const [ToggleNav, setToggleNav] = useState(false);
-  const [checked, setChecked] = React.useState(false);
   // const [DarkLight, setDarkLight] = useState(true)
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
@@ -20,26 +19,26 @@ const Navlist = () => {
   return (
     <div>
       <ul className={css.list} data-mobileul={ToggleNav} data-darkmode={isDarkMode} >
-        <button aria-label="Close menu" className={css.lines} onClick={() => setToggleNav(false)}>
+        <button style={{cursor:"pointer"}} aria-label="Close menu" className={css.lines} onClick={() => setToggleNav(false)}>
           <span className={`${css.line} ${css.line1}`} ></span>
           <span className={`${css.line} ${css.line2}`}></span>
         </button>
 
 
-        <Link href={"/webdevelopment"}><li className={css.purple_webdev}>WEB DEVELOPMENT</li></Link>
-        <Link href={"/Creations"}> <li>CREATIONS</li></Link>
-        <Link href={"/Pricing"}><li>PRICING</li></Link>
-        <Link href={"/About"}><li>ABOUT</li></Link>
-        <Link href={"/Contact"}><li>CONTACT</li></Link>
-        <li>
-          <div>
-            <label className={css.switch} htmlFor="switch" onClick={() => ModeChanger()}>
+        {/* <Link href={"/webdevelopment"}><li className={css.purple_webdev}>WEB DEVELOPMENT</li></Link> */}
+        <Link href={"/creations/all"}> <li>CREATIONS</li></Link>
+        <Link href={"/pricing"}><li>PRICING</li></Link>
+        <Link href={"/about"}><li>ABOUT</li></Link>
+        <Link href={"/contact"}><li>CONTACT</li></Link>
+        <li onClick={() => ModeChanger()}>
+          <div >
+            <label className={css.switch} htmlFor="switch" >
               <input
                 id={css.switch}
                 type="checkbox"
                 className={css.circle}
-                onChange={() => setChecked(isDarkMode)}
-                checked={checked}
+                onChange={() => {}}
+                checked={isDarkMode}
               />
               <svg
                 viewBox="0 0 384 512"
@@ -58,7 +57,7 @@ const Navlist = () => {
       </ul>
 
       <button aria-label="Open menu" className={`${css.hamburger}`} onClick={() => setToggleNav(true)}>
-        <GiHamburgerMenu className={css.hamicon} />
+        <GiHamburgerMenu className={css.hamicon} cursor={"pointer"}/>
       </button>
 
 

@@ -1,6 +1,7 @@
 "use client"
 import Navlist from "../Navbar/Navlist"
 import css from "../../styles/Navbar/NavBar.module.scss"
+import Link from "next/link"
 
 
 
@@ -11,6 +12,7 @@ const Navbar = () => {
 
     <nav className={`${css.navbar} Navbar_Home`}>
       <header className={`${css.container_parent} container`}>
+    <Link href={"/"}>
         <div className={css.logo}>
           <h2 className={css.animated_gradient_text}>
             {/* <img src="https://res.cloudinary.com/dp6b6emb9/image/upload/Swirl365_logo_dqv2zg.webp" alt="" width={150} 
@@ -22,7 +24,7 @@ const Navbar = () => {
               style={{ objectFit: 'contain' }} />
           </h2>
         </div>
-
+</Link>
         <Navlist />
       </header>
     </nav> 

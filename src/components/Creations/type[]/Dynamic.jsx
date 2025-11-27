@@ -6,6 +6,7 @@ import { RxCaretDown } from "react-icons/rx";
 import { useGetPortfolioQuery, useSpecificPortfolioQuery } from '@/store/Api/PortfolioAPi';
 import { FaPlay } from 'react-icons/fa';
 import { handleVideoPlayer } from '@/store/VideoSlice';
+import { useDispatch } from 'react-redux';
 
 const Dynamic = () => {
 

@@ -1,0 +1,233 @@
+@use "../media.module" as *;
+@use "../mixin.module" as *;
+
+.Pricing_section {
+    @include flex(column);
+    @include PaddingPage();
+    // @include Background("/pricingbg.png");
+    @include Background("/Creation Bg.png");
+}
+.Pricing_section h6{
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    color:#360F4F;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 30px 0px;
+}
+.Pricing_section header {
+    @include flex(column);
+    gap: 30px;
+
+    h1 {
+        @include heading(black);
+    }
+
+    h3 {
+
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    ul {
+        @include flex();
+        flex-wrap: wrap;
+        width: 750px;
+        gap: 20px;
+    }
+
+}
+.plans{
+          @include flex(row,space-between);
+          --gap: 15px;
+        gap: var(--gap);
+        margin-top: 20px;
+
+}
+.basic , .premium , .standard{
+          flex:0 0 calc((100% / 3) - var(--gap));
+
+}
+.tick {
+    margin-right: 6px;
+}
+
+.plan {
+    @include flex(column, start, start);
+    gap: 20px;
+    width: 100%;
+
+    ul {
+        @include flex(column, start, start);
+        gap: 20px;
+    }
+
+    h3 {
+        font-weight: 1000;
+        font-size: 20px;
+    }
+}
+
+ .plan {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(183, 178, 178, 0.25) 3px 4px 12px 1px;
+    transition: 300ms;
+    padding: 25px;
+    border-radius: 13px;
+    height: 550px;
+}
+
+.divider {
+    @include divider();
+}
+
+.custom_plan {
+    @include Background("https://res.cloudinary.com/dp6b6emb9/image/upload/v1760203269/Stats_Bg_gjvpn0.webp");
+    color: white;
+    @include flex(row,space-between);
+    border-radius: 13px;
+    padding: 5px 15px;
+    height: 75px;
+    .text{
+          @include flex();
+    }
+    h3 {
+        font-weight: 1000;
+        font-size: 20px;
+
+        padding: 0px 15px;
+    }
+
+    .divider {
+        background-color: white;
+        width: 1px;
+        height: 100%;
+    }
+
+    p {
+        @include colorText();
+        width: 480px;
+        border-left: 2px solid white;
+        padding-left: 15px;
+    }
+
+    .btn button {
+        @include btn(#360F4F, white, white);
+    }
+}
+
+.example {
+    h5 {
+        font-size: 14px;
+        font-weight: 700;
+        display: inline-block;
+        margin: 35px 0px 15px 0px;
+    }
+
+    img {
+        width: 100px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    .three_ex {
+        @include flex(row, start, start);
+        gap: 10px;
+        padding: 15px 0px;
+    }
+    .divider{
+        width: 80% ;
+    }
+}
+.getabtn{
+}
+
+.getabtn button {
+    @include btn(white, #360F4F, white);
+    width: 100%;
+}
+.standard{
+    position: relative;
+}
+.standard .plan{
+        box-shadow: rgb(54, 15, 79) 13px 14px 100px 3px;
+            background: linear-gradient(135deg, rgba(20, 0, 50, 0.85), rgb(20, 0, 50));
+            color: white;
+            border: none;
+
+            .divider{
+                background-color: white;
+            }
+}
+.best{
+    position: absolute;
+        border-top-right-radius: 11px;
+    border-bottom-left-radius: 13px;
+    padding: 10px;
+    background-color: rgb(190 40 204);
+    color: white;
+    top: 0;
+    right: 0;
+}
+
+@include TwelveHundred(){
+    .plan{
+        height: 520px;
+    }
+    .example {
+        img{
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+@include NineNine2(){
+    .plans{
+        flex-direction: column;
+    }
+     .plan{
+        height: auto;
+    }
+    .basic , .premium , .standard{
+         flex: 0 0 100%;
+        width: 75%;
+}
+
+
+.custom_plan {
+  flex-direction: column;
+  height: auto;
+  padding: 30px 10px;
+    .text{
+        flex-direction: column;
+        text-align: center;
+    }
+    h3 {
+        font-weight: 1000;
+        font-size: 20px;
+
+        padding: 0px 15px;
+    }
+
+
+
+    p {
+        @include colorText();
+        width: 480px;
+        border-left: none;
+        border-bottom: 2px solid white;
+    }
+
+    .btn button {
+        @include btn(#360F4F, white, white);
+    }
+}
+}
+
+@include tablet(){
+  .Pricing_section   header ul {
+        width: 100% ;
+    }
+}

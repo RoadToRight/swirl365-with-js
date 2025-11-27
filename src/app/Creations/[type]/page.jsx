@@ -2,7 +2,7 @@
 import React from 'react'
 import css from "../../../styles/Creations/creations.module.scss";
 import Link from 'next/link';
-import Dynamic from '@/components/Creations/Dynamic';
+import Dynamic from '@/components/Creations/type[]/Dynamic';
 
 
 const Creations = () => {
