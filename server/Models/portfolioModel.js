@@ -4,7 +4,8 @@ const portfolioSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+             trim:true
     },
     video: {
         type: String,
@@ -18,6 +19,7 @@ const portfolioSchema = new mongoose.Schema({
         type: [String],
         required: true,
         index: true,
+        trim:true
     },
     featured: {
         type: Boolean,

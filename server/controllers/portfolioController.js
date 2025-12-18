@@ -59,13 +59,13 @@ export const addVideo = catchAsyncErrors(async (req, res, next) => {
 
 
 export const updateVideo = catchAsyncErrors(async (req, res, next) => {
-  const { name, video, type } = req.body || {};
+  const { name, video, type, featured } = req.body || {};
   const { id } = req.params;
 
 
 
   const project = await portfolioModel.findOne({ _id: id });
-  console.log(project)
+
   if (!project) return next(new ErrorHandler("Project Not Exist In Database", 404))
 
 
@@ -73,6 +73,7 @@ export const updateVideo = catchAsyncErrors(async (req, res, next) => {
   if (name && name !== project.name) updatedProject.name = name;
   if (video && video !== project.video) updatedProject.video = video;
   if (type && type !== project.type) updatedProject.type = type;
+  if (featured !== project.featured) updatedProject.featured = featured;
 
   if (Object.keys(updatedProject).length === 0 && !req.files?.poster) {
     return next(new ErrorHandler("Please Do Some Changes To Update", 400))
@@ -120,10 +121,23 @@ export const getPortfolio = catchAsyncErrors(async (req, res, next) => {
     success: true,
     Portfolio
   })
+
+})
+
+export const getFeaturedProjects = catchAsyncErrors(async (req, res, next) => {
+
+  let projects = await portfolioModel.find({ featured: true }).limit(24)
+
+  res.status(200).json({
+    success: true,
+    projects
+  })
+
 })
 
 export const getCollection = catchAsyncErrors(async (req, res, next) => {
   const { type } = req.params;
+
 
   if (!type) {
     return res.status(400).json({

@@ -8,8 +8,11 @@ export const api = createApi({
         }),
         specificPortfolio:builder.query({
             query:(type) => `/portfolio/${type}`
+        }),
+        featuredPortfolio:builder.query({
+            query:() => "/featured"
         })
     })
 })
 
-export const {useGetPortfolioQuery,useSpecificPortfolioQuery} = api;
+export const {useGetPortfolioQuery,useSpecificPortfolioQuery,useFeaturedPortfolioQuery} = api;

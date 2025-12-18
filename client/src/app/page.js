@@ -10,13 +10,16 @@ import VideoIframe from "@/components/VideoIframe";
 import Reviews from "@/components/Home/HomeCardsSection";
 import QuotesSection from "@/components/Home/QuotesSection";
 
+
 export default function Home() {
+
+
 
   return (
     <section className={`${styles.page} Home`}>
       <VideoIframe />
       <Video />
-      <Marquee   direction={"left"}  HeaderText={true}/>
+      <Marquee direction={"left"} HeaderText={true} />
       <Circle />
       <Projectslider />
       <ImageText />
